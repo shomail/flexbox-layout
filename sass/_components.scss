@@ -17,22 +17,37 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-xsmall) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
     background-color: var(--color-grey-light-2);
     border: none;
-    padding: .7rem 2rem;
+    padding: 0.7rem 2rem;
     border-radius: 100px;
     width: 90%;
     margin-right: -3.25rem;
     transition: all 0.3s ease-in-out;
 
+    @media only screen and (max-width: $bp-xsmall) {
+      border-radius: 0;
+      padding: 1rem 2rem;
+    }
+
     &:focus {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
+
+      @media only screen and (max-width: $bp-xsmall) {
+        width: 95%;
+      }
     }
 
     &::-webkit-input-placeholder {
@@ -74,7 +89,6 @@
   display: flex;
   align-items: center;
   align-self: stretch;
-  
 
   & > * {
     padding: 0 2rem;
@@ -96,11 +110,10 @@
     height: 2.25rem;
     width: 2.25rem;
     fill: var(--color-grey-dark-2);
-    
   }
 
   &__notification {
-    font-size: .8rem;
+    font-size: 0.8rem;
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
@@ -129,26 +142,38 @@
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
-  
+
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
   &__item::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: 3px;background-color: var(--color-primary);
+    width: 3px;
+    background-color: var(--color-primary);
     transform: scaleY(0);
-    transition: transform .2s, 
-                width .4s cubic-bezier(1, 0, 0, 1) .2s,
-                background-color .1s;
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
   }
 
   &__item:hover::before,
@@ -171,6 +196,16 @@
     padding: 1.5rem 3rem;
     position: relative;
     z-index: 10; //only works when position is specified
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -178,6 +213,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor; //color of current or parent element
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+      width: 1.5rem;
+      hight: 1.5rem;
+    }
   }
 }
 
@@ -190,6 +232,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
@@ -197,14 +243,12 @@
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 .gallery {
-
   display: flex;
 
   &__photo {
     width: 100%; //define img dimensions in % for responsive
     display: block;
   }
-
 }
 
 //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
@@ -214,13 +258,18 @@
   display: flex;
   align-items: center;
   border-bottom: var(--line);
-  
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -242,7 +291,7 @@
   }
 
   &__icon-location {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   &__rating {
@@ -255,17 +304,29 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -285,7 +346,7 @@
 
   & span {
     margin-left: 3px;
-    transition: margin-left .2s;
+    transition: margin-left 0.2s;
   }
 
   &:hover {
@@ -310,7 +371,7 @@
 
   50% {
     transform: scale(1.05);
-    box-shadow: 0 1rem 4rem rgba(0,0,0, .25);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
   }
 
   100% {
@@ -342,26 +403,29 @@
 
   &__item {
     flex: 0 0 50%;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
   }
 
   &__item::before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 1rem;
     width: 1rem;
-    margin-right: .7rem;
+    margin-right: 0.7rem;
 
     //old browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     //new browsers - use masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
@@ -374,13 +438,12 @@
   display: flex;
   align-items: center;
 
-
   &__count {
     margin-right: auto;
   }
 
-  &__friends {
-
+  &__friend {
+    display: flex;
   }
 
   &__photo {
@@ -391,7 +454,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -406,6 +469,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -433,7 +501,7 @@
     text-transform: uppercase;
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
   }
 
   &__user-date {
@@ -448,7 +516,7 @@
   }
 
   &::before {
-    content: "\201C";
+    content: '\201C';
     position: absolute;
     top: -2.75rem;
     left: -1rem;
@@ -466,7 +534,11 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
-  
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
     font-size: 2rem;
     font-weight: 300;
@@ -498,7 +570,7 @@
     display: inline-block;
     height: 100%;
     width: 100%;
-    transition: all .2s;
+    transition: all 0.2s;
   }
 
   &__invisible {
@@ -514,14 +586,14 @@
 
   &:hover &__visible {
     transform: translateY(100%);
-    
   }
 
   &:hover &__invisible {
     top: 0;
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     outline: none;
     animation: pulsate 1s infinite;
   }
