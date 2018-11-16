@@ -127,6 +127,10 @@
     align-items: center;
   }
 
+  &__user {
+    position: relative;
+  }
+
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -597,4 +601,71 @@
     outline: none;
     animation: pulsate 1s infinite;
   }
+}
+
+.dropdown {
+  position: absolute;
+  top: 105%;
+  right: .5rem;
+  background-color: #fff;
+  width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-light);
+  transition: all 0.2s;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    top: -11px;
+    transform: rotate(-135deg);
+        right: 2rem;
+    border: solid rgba(0, 0, 0, 0.25);
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 3px;
+    z-index: 1;
+  }
+
+  &__list {
+    list-style: none;
+    position: relative;
+    z-index: 1000;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+    
+
+    &:first-child {
+      border-bottom: var(--line); 
+    }
+
+    &:not(:first-child) > a:hover {
+      color: #fff;
+      background-color: var(--color-primary); 
+    }
+
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    padding-left: 2rem;
+    color: var(--color-grey-dark-2);
+    transition: all .2s;
+  }
+  
 }
