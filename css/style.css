@@ -137,6 +137,9 @@ body {
     .side-nav {
       display: flex;
       margin: 0; } }
+  @media only screen and (max-width: 26.87em) {
+    .side-nav {
+      font-size: 1.1rem; } }
   .side-nav__item {
     position: relative; }
     .side-nav__item:not(:last-child) {
@@ -220,6 +223,11 @@ body {
       .overview__heading {
         font-size: 1.8rem;
         padding: 1.25rem 2rem; } }
+    @media only screen and (max-width: 26.87em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        padding: 1.25rem .8rem;
+        letter-spacing: 0; } }
   .overview__stars {
     display: flex;
     margin-right: auto; }
@@ -227,6 +235,10 @@ body {
     width: 1.75rem;
     height: 1.75rem;
     fill: var(--color-primary); }
+    @media only screen and (max-width: 26.87em) {
+      .overview__icon-star, .overview__icon-location {
+        width: 1rem;
+        height: 1rem; } }
   .overview__location {
     font-size: 1.2rem;
     display: flex;
@@ -246,6 +258,10 @@ body {
     @media only screen and (max-width: 37.5em) {
       .overview__rating {
         padding: 0 1.5rem; } }
+    @media only screen and (max-width: 26.87em) {
+      .overview__rating {
+        padding: 0 1rem;
+        margin-left: 1rem; } }
   .overview__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
@@ -306,6 +322,9 @@ body {
   .list__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem; }
+    @media only screen and (max-width: 26.87em) {
+      .list__item {
+        flex: 0 0 100%; } }
   .list__item::before {
     content: '';
     display: inline-block;
@@ -328,8 +347,16 @@ body {
   color: var(--color-grey-dark-3);
   display: flex;
   align-items: center; }
+  @media only screen and (max-width: 26.87em) {
+    .recommend {
+      flex-direction: column;
+      align-items: center; } }
   .recommend__count {
     margin-right: auto; }
+    @media only screen and (max-width: 26.87em) {
+      .recommend__count {
+        margin-right: 0;
+        margin-bottom: 1rem; } }
   .recommend__friend {
     display: flex; }
   .recommend__photo {
@@ -442,13 +469,20 @@ body {
   width: 20rem;
   opacity: 0;
   visibility: hidden;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   box-shadow: var(--shadow-light);
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  transform: scaleY(0);
+  transform-origin: top;
+  z-index: 9999; }
+  @media only screen and (max-width: 26.87em) {
+    .dropdown {
+      top: 140%; } }
   .dropdown--active {
     opacity: 1;
-    visibility: visible; }
+    visibility: visible;
+    transform: scaleY(1); }
   .dropdown::before {
     position: absolute;
     content: "";
